@@ -48,10 +48,10 @@ $(document).ready(function(){
 	  $("#slider-range").slider({
 		range: true,
 		orientation: "horizontal",
-		min: 0,
-		max: 10000,
-		values: [0, 10000],
-		step: 100,
+		min: 1,
+		max: 10,
+		values: [1, 2],
+		step: 1,
 
 		slide: function (event, ui) {
 		  if (ui.values[0] == ui.values[1]) {
@@ -73,7 +73,7 @@ $(document).ready(function(){
 	  var min_price = $('#min_price').val();
 	  var max_price = $('#max_price').val();
 
-	  $("#searchResults").text("Here List of products will be shown which are cost between " + min_price  +" "+ "and" + " "+ max_price + ".");
+	  $("#searchResults").text( min_price  +"Weeks to " +  max_price + "Weeks");
 	});
 
 });

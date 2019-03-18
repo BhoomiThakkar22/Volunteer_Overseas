@@ -16,4 +16,6 @@ com\volunteer\model\ProjectStartDates.class
 com\volunteer\model\Categories.class
 com\volunteer\model\ProjectCarouselImages.class
 com\volunteer\model\Users.class
+com\volunteer\model\inquiry.class
+com\volunteer\controller\AjaxConroller.class
 com\volunteer\model\ProjectIncludeChecks.class

@@ -13,8 +13,11 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.Proxy;
+
 @Entity
 @Table(name="organizations")
+@Proxy(lazy=false)
 public class Organizations {
 
 	@Id

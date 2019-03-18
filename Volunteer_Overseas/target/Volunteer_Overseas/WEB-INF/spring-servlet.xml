@@ -55,6 +55,7 @@
 				<value>com.volunteer.model.ProjectStartDates</value>
 				<value>com.volunteer.model.ProjectViewHistory</value>
 				<value>com.volunteer.model.Users</value>
+				<value>com.volunteer.model.inquiry</value>
 			</list>
 		</property>
         <property name="hibernateProperties">

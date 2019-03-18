@@ -9,8 +9,13 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.Proxy;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name="project_costs")
+@Proxy(lazy=false)
 public class ProjectCosts {
 
 	@Id
@@ -24,6 +29,7 @@ public class ProjectCosts {
 	private float cost;
 	
 	@ManyToOne
+	@JsonIgnore
 	@JoinColumn(name="project_id")
 	private Projects projectCost;
 	

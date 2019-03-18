@@ -1,8 +1,14 @@
 package com.volunteer.daoimp;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Set;
 
 import org.hibernate.Query;
 import org.hibernate.Session;
@@ -12,9 +18,12 @@ import com.volunteer.dao.IClient;
 import com.volunteer.model.Activities;
 import com.volunteer.model.Applications;
 import com.volunteer.model.Categories;
+import com.volunteer.model.ProjectCosts;
 import com.volunteer.model.ProjectIncludeChecks;
+import com.volunteer.model.ProjectStartDates;
 import com.volunteer.model.ProjectViewHistory;
 import com.volunteer.model.Projects;
+import com.volunteer.model.inquiry;
 
 public class Client implements IClient {
 	
@@ -54,7 +63,24 @@ public class Client implements IClient {
 		query.setParameter("country", country);
 		query.setParameter("activity", activity);
 		List<Projects> project=query.list();
-		System.out.println(project.size());
+		return project;
+	}
+	
+	@SuppressWarnings("unchecked")
+	public List<Projects> getMoreFiltersProjects(int category, int country, int activity, List<Integer> startdateid,
+			List<Integer> rangeArea, int minage){
+		Session session=sessionFactory.getCurrentSession();
+	//	Set<ProjectStartDates> projectsdate = new HashSet<ProjectStartDates>();
+	//	projectsdate.addAll(startdateid);
+		Query query = session.createQuery("from Projects p where p.category.id=:category and p.country.id=:country and p.activity.id=:activity "
+				+ "and p.min_age<= :minage and p.id IN :startdate and p.id IN :range");
+		query.setParameter("category", category);
+		query.setParameter("country", country);
+		query.setParameter("activity", activity);
+		query.setParameterList("startdate", startdateid);
+		query.setParameterList("range", rangeArea);
+		query.setParameter("minage", minage);
+		List<Projects> project=query.list();
 		return project;
 	}
 	
@@ -72,7 +98,31 @@ public class Client implements IClient {
 			return 0;
 		}
 	}
-	
+	@SuppressWarnings("unchecked")
+	public List<Integer> getStartdateId(String startdate,String startdate2) throws ParseException{
+		
+		Session session = sessionFactory.getCurrentSession();
+		String sdate1 = startdate;
+		Date date1=new SimpleDateFormat("yyyy-MM-dd").parse(sdate1);
+		String sdate2 = startdate2;
+		Date date2=new SimpleDateFormat("yyyy-MM-dd").parse(sdate2);
+		Query query= session.createQuery("Select p.projectStartDate.id from ProjectStartDates p where p.start_date BETWEEN :stDate AND :edDate ");
+		query.setParameter("stDate", date1);
+		query.setParameter("edDate", date2);
+		List<Integer> dateId = query.list();
+		System.out.println("dateid is"+dateId);
+		return dateId;
+	}
+	@SuppressWarnings("unchecked")
+	public List<Integer> getRange(int range1, int range2){
+		Session session = sessionFactory.getCurrentSession();
+		Query query= session.createQuery("Select p.projectCost.id from ProjectCosts p where p.number_of_weeks BETWEEN :sWeek AND :eWeek ");
+		query.setParameter("sWeek", range1);
+		query.setParameter("eWeek", range2);
+		List<Integer> rangeId = query.list();
+		System.out.println("week id is"+rangeId);
+		return rangeId;
+	}
 	@SuppressWarnings("unchecked")
 	public int getCountryId(String Country){
 		Session session = sessionFactory.getCurrentSession();
@@ -160,4 +210,38 @@ public class Client implements IClient {
 	     }		
 		return project;
 	}
+	@SuppressWarnings("unchecked")
+	public List<ProjectCosts> getAllAffordableCostById(List<Integer> costProjectId){
+		Session session = sessionFactory.getCurrentSession();
+		Query query=session.createQuery("from ProjectCosts p where p.projectCost.id IN :projectId");
+		query.setParameterList("projectId", costProjectId);
+		List<ProjectCosts> results = query.list();
+		return results;
+	}
+	@SuppressWarnings("unchecked")
+	public List<Projects> getAllFeatureDest(){
+		 Session session = sessionFactory.getCurrentSession();
+		 Query query = session.createQuery("from Projects p group by p.city.id order by count(p.city.id) desc");
+		 List<Projects> results = query.list();
+		 return results;
+	 }
+	@SuppressWarnings("unchecked")
+	public List<ProjectCosts> getProjectCost(int projectid){
+		Session session = sessionFactory.getCurrentSession();
+		Query query = session.createQuery("from ProjectCosts pc where pc.projectCost.id=:projectid");
+		query.setParameter("projectid",projectid);
+		List<ProjectCosts> results = query.list();
+		return results;
+	}
+	 public ProjectCosts getProjectCostvalue(int id)
+	 {
+		 Session session = sessionFactory.getCurrentSession();
+		 ProjectCosts pc = (ProjectCosts)session.load(ProjectCosts.class, id);
+		 System.out.println(pc.getCost());
+		 return pc;
+	 }
+	 public void AddInquiry(String name, String mail, String message){
+		 Session session = sessionFactory.getCurrentSession();
+		 session.save(new inquiry(name,mail,message));
+	 }
 }

@@ -16,5 +16,5 @@
 	<script type="text/javascript" src="<c:url value="/resources/js1/jquery.waypoints.min.js" />"></script>
 	<script type="text/javascript" src="<c:url value="/resources/js1/wNumb.js" />"></script>
 	<script type="text/javascript" src="<c:url value="/resources/js1/jquery.sticky.js" />"></script>
-	<%-- <script type="text/javascript" src="<c:url value="/resources/js1/general.js" />"></script> --%>
+	<script type="text/javascript" src="<c:url value="/resources/js1/general.js" />"></script> 
 	

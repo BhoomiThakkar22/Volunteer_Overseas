@@ -1,5 +1,6 @@
 package com.volunteer.dao;
 
+import java.text.ParseException;
 import java.util.Date;
 import java.util.List;
 
@@ -8,7 +9,9 @@ import org.springframework.stereotype.Repository;
 import com.volunteer.model.Activities;
 import com.volunteer.model.Applications;
 import com.volunteer.model.Categories;
+import com.volunteer.model.ProjectCosts;
 import com.volunteer.model.ProjectIncludeChecks;
+import com.volunteer.model.ProjectStartDates;
 import com.volunteer.model.Projects;
 @Repository
 public interface IClient {
@@ -26,4 +29,13 @@ public interface IClient {
 	public List<ProjectIncludeChecks> getAllNotIncluded(int projectid);
 	public List<Projects> getAllTrendingProjects();
 	public List<Projects> getAllAffordableProjects();
+	public List<ProjectCosts> getProjectCost(int projectid);
+	public ProjectCosts getProjectCostvalue(int id);
+	public List<Projects> getAllFeatureDest();
+	public void AddInquiry(String name, String mail, String message);
+	public List<Integer> getStartdateId(String startdate, String startdate2) throws ParseException;
+	public List<Integer> getRange(int range1, int range2);
+	public List<Projects> getMoreFiltersProjects(int category, int country, int activity, List<Integer> startdateid,
+			List<Integer> rangeArea, int minage);
+	public List<ProjectCosts> getAllAffordableCostById(List<Integer> costProjectId);
 }

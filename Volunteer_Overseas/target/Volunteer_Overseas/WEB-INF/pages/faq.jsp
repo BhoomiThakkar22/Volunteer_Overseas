@@ -21,7 +21,7 @@
            <header>
                 <div class="row header-row" id ="menu">
                     <div class="col-lg-2 col-sm-3 col-xs-6 logo-outer">
-                        <a href="index.html" title="Volunteer Overseas" class="logo">
+                        <a href="homepage" title="Volunteer Overseas" class="logo">
                            <!--  <img id="logo-default" src="images/logo_1.png" alt=""> -->
                             <img class="color-logo1" src="/Volunteer_Overseas/resources/images/logo_1.png" alt="">
                         </a>
@@ -30,7 +30,7 @@
                         <nav>
                             <ul>    
                                 <li><a href="#" title="HOW IT WORKS">HOW IT WORKS</a></li>
-                                <li><a href="CONTACT US" title="CONTACT US">CONTACT US</a></li>
+                                <li><a href="contact_us" title="CONTACT US">CONTACT US</a></li>
                             </ul>
                         </nav>
                         <div class="right-block">
@@ -167,11 +167,11 @@
 
 <div class="footer">
         <div class="row">
-       
-        <img src="/Volunteer_Overseas/resources/images/logo_1.png" >
+       <a href="homepage"><img src="/Volunteer_Overseas/resources/images/logo_1.png" ></a>
+        
         <span>
-        <a href="contact_us.html">CONTACT US</a>
-        <a href="faq.html">FAQ</a>
+        <a href="contact_us">CONTACT US</a>
+        <a href="faq">FAQ</a>
         </span>
     </div> 
  </div>
@@ -181,7 +181,7 @@
         <script type="text/javascript" src="<c:url value="/resources/js/validate.js" />"></script>
         <script type="text/javascript" src="<c:url value="/resources/js/default.js" />"></script>
         <script type="text/javascript" src="<c:url value="/resources/js1/jquery.js" />"></script>
-        <script type="text/javascript" src="<c:url value="/resources/js1/main.js" />"></script>
+        <%-- <script type="text/javascript" src="<c:url value="/resources/js1/main.js" />"></script> --%>
 
         <script type="text/javascript">
     $(document).ready(function(){
