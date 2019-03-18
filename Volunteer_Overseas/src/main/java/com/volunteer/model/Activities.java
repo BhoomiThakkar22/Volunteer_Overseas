@@ -11,8 +11,11 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.Proxy;
+
 @Entity
 @Table(name="activities")
+@Proxy(lazy=false)
 public class Activities {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)

@@ -69,4 +69,5 @@ const defaults = {
   bubble: true
 };
 
+
 export default defaults;

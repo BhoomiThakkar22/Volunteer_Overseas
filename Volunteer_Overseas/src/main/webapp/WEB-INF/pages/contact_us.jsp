@@ -55,29 +55,24 @@
 </div>
 
 <div class="container-fluid">
-<form  name="myForm" onsubmit="return validateForm()" method="post">
+<form  name="myForm" onsubmit="return validateForm()" method="post" action="savecontact">
 	 <div class="row">
 
 					<div class="col-md-2"></div>
 
 			 <div class="col-md-4 form-group">
-					
 					<input type="text" class="form-control" placeholder="Name" name="name">
-			    
 			 </div>
-
 				<div class="col-md-4 form-group">
 				      	<input type="text" class="form-control" placeholder="your@email.com" name="mail">
 				 </div>
-	 </div>
-
+			 </div>
 			    <div class="row">
 			    	<div class="col-md-2"></div>
 			    	<div class="col-md-8">
   					<textarea class="form-control textarea" id="comment" name="message" placeholder ="message" style="height: 180px;margin-bottom: 15px"></textarea>
 					</div>
 				</div>
-
 				<div class="row">
 
 						<div class="col-md-5"></div>
@@ -121,11 +116,9 @@
             $('.color-logo1').attr('src','/Volunteer_Overseas/resources/images/logo_1.png'); 
             $('header a').css("color","#FFFFFF");
             $('.right-block').css("margin-right","0%");
-
         }
     });
     });
-    
 </script>
 </body>
 </html>

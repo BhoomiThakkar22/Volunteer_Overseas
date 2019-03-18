@@ -7,8 +7,11 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.Proxy;
+
 @Entity
 @Table(name="faq")
+@Proxy(lazy=false)
 public class Faq {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)

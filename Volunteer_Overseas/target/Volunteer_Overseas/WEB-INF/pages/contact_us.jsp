@@ -18,7 +18,7 @@
      <header>
                 <div class="row header-row" id ="menu">
                     <div class="col-lg-2 col-sm-3 col-xs-6 logo-outer">
-                        <a href="index.html" title="Volunteer Overseas" class="logo">
+                        <a href="homepage" title="Volunteer Overseas" class="logo">
                            <!--  <img id="logo-default" src="images/logo_1.png" alt=""> -->
                             <img class="color-logo1" src="/Volunteer_Overseas/resources/images/logo_1.png" alt="">
                         </a>
@@ -27,7 +27,7 @@
                         <nav>
                             <ul>    
                                 <li><a href="#" title="HOW IT WORKS">HOW IT WORKS</a></li>
-                                <li><a href="CONTACT US" title="CONTACT US">CONTACT US</a></li>
+                                <li><a href="contact_us" title="CONTACT US">CONTACT US</a></li>
                             </ul>
                         </nav>
                         <div class="right-block">
@@ -55,29 +55,24 @@
 </div>
 
 <div class="container-fluid">
-<form  name="myForm" onsubmit="return validateForm()" method="post">
+<form  name="myForm" onsubmit="return validateForm()" method="post" action="savecontact">
 	 <div class="row">
 
 					<div class="col-md-2"></div>
 
 			 <div class="col-md-4 form-group">
-					
 					<input type="text" class="form-control" placeholder="Name" name="name">
-			    
 			 </div>
-
 				<div class="col-md-4 form-group">
 				      	<input type="text" class="form-control" placeholder="your@email.com" name="mail">
 				 </div>
-	 </div>
-
+			 </div>
 			    <div class="row">
 			    	<div class="col-md-2"></div>
 			    	<div class="col-md-8">
   					<textarea class="form-control textarea" id="comment" name="message" placeholder ="message" style="height: 180px;margin-bottom: 15px"></textarea>
 					</div>
 				</div>
-
 				<div class="row">
 
 						<div class="col-md-5"></div>
@@ -92,11 +87,11 @@
 
 <div class="footer">
         <div class="row">
-       
-        <img src="/Volunteer_Overseas/resources/images/logo_1.png" >
+       <a href="homepage"><img src="/Volunteer_Overseas/resources/images/logo_1.png" ></a>
+        
         <span>
-        <a href="contact_us.html">CONTACT US</a>
-        <a href="faq.html">FAQ</a>
+        <a href="contact_us">CONTACT US</a>
+        <a href="faq">FAQ</a>
         </span>
     </div> 
  </div>
@@ -121,11 +116,9 @@
             $('.color-logo1').attr('src','/Volunteer_Overseas/resources/images/logo_1.png'); 
             $('header a').css("color","#FFFFFF");
             $('.right-block').css("margin-right","0%");
-
         }
     });
     });
-    
 </script>
 </body>
 </html>

@@ -13,8 +13,13 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.Proxy;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name="projects")
+@Proxy(lazy=false)
 public class Projects {
 
 	@Id
@@ -80,14 +85,17 @@ public class Projects {
 
 	@ManyToOne
     @JoinColumn(name = "organization_id")
+	@JsonIgnore
     private Organizations organization;
 	
 	@ManyToOne
     @JoinColumn(name = "category_id")
+	@JsonIgnore
     private Categories category;
 	
 	@ManyToOne
     @JoinColumn(name = "activity_id")
+	@JsonIgnore
     private Activities activity;
 	
 	@ManyToOne
@@ -96,6 +104,7 @@ public class Projects {
 	
 	@ManyToOne
     @JoinColumn(name = "country_id")
+	@JsonIgnore
     private Countries country;
 	
 	@OneToMany(mappedBy = "projectApplication", cascade = CascadeType.ALL)
@@ -105,6 +114,7 @@ public class Projects {
 	private Set<ProjectCarouselImages> projectCarouselImagesDetails;
 	
 	@OneToMany(mappedBy = "projectCost", cascade = CascadeType.ALL)
+	@JsonIgnore
 	private Set<ProjectCosts> projectCostsDetails;
 	
 	@OneToMany(mappedBy = "projectIncludeCheck", cascade = CascadeType.ALL)
@@ -114,6 +124,7 @@ public class Projects {
 	private Set<ProjectStartDates> projectStartDatesDetails;
 	
 	@OneToMany(mappedBy = "projectViewHistory", cascade = CascadeType.ALL)
+	@JsonIgnore
 	private Set<ProjectViewHistory> projectViewHistoryDetails;
 	
 	public int getId() {
@@ -355,6 +366,7 @@ public class Projects {
 	public void setProjectStartDatesDetails(Set<ProjectStartDates> projectStartDatesDetails) {
 		this.projectStartDatesDetails = projectStartDatesDetails;
 	}
+	
 
 	public Set<ProjectViewHistory> getProjectViewHistoryDetails() {
 		return projectViewHistoryDetails;

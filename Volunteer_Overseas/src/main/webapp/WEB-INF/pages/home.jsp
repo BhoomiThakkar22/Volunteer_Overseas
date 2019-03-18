@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-
+<%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -19,6 +19,10 @@
 <link href="<c:url value="/resources/css/MediaHome.css"/>"
 	rel="stylesheet">
 <style type="text/css">
+option{
+background: white;
+color:black;
+}
 </style>
 </head>
 <body>
@@ -55,12 +59,11 @@
 				aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"></span>
 			</button>
-
 			<div class="collapse navbar-collapse" id="navbarSupportedContent">
 				<ul class="navbar-nav mr-auto">
 					<li class="nav-item "><a class="nav-link" href="#">HOW IT
 							WORKS</a></li>
-					<li class="nav-item "><a class="nav-link" href="#">CONTACT
+					<li class="nav-item "><a class="nav-link" href="contact">CONTACT
 							US</a></li>
 				</ul>
 				<form class="form-inline my-2 my-lg-0">
@@ -69,7 +72,6 @@
 				</form>
 			</div>
 		</nav>
-
 		<div>
 			<h1>Discover Yourself, Discover the World</h1>
 			<h3>Apply to your perfect volunteer, intern, or teach abroad
@@ -83,18 +85,18 @@
 							id="searchbar-category" name="searchbar-category">
 							 <c:forEach items="${categories}" var="category">
 								<option value="${category.name}">${category.name}</option>
-							</c:forEach> 
+							 </c:forEach> 
 						</select>
 					</div>
 					<div class="col-sm-4 form-group">
 						<label>Location</label> <input type="text" id="searchbar-location" name="searchbar-location"
-							class="form-control search-input" placeholder="Anyhwhere">
+							class="form-control search-input" required="required" placeholder="Anyhwhere">
 					</div>
 					<div class="col-sm-3 form-group">
 						<label>Activity</label> <select  id="searchbar-activity" class="form-control home-select-2" name="searchbar-activity">
 						 <c:forEach items="${activities}" var="activities">
 							<option value="${activities.name}">${activities.name}</option>
-							</c:forEach> 
+						</c:forEach> 
 						</select>
 					</div>
 					<div class="col-sm-2 form-group">
@@ -127,7 +129,7 @@
 		<div class="container-fluid" id="slider2">
 			<h2>Feature Destinations</h2>
 			<div class="owl-carousel">
-				<c:forEach items="${projects}" var="projects">
+				<c:forEach items="${projectFeaturedest}" var="projects">
 				<div class="item">
 					<a href="index/project?id=${projects.id}"><img
 						src="/Volunteer_Overseas/resources/images/thumb10.jpg" /></a>
@@ -144,25 +146,29 @@
 			<div class="owl-carousel">
 				<c:forEach items="${projectsMostAffordable}" var="projectsMostAffordable">
 				<div class="item">
-					<a href="index/project?id=${projectsMostAffordable.id}"> <img
+					<%-- <% System.out.println(request.getParameter(projectsMostAffordable.id)); %> --%>
+					<%-- <c:out value="${projectsMostAffordable.projectCost.id
+					}"></c:out> --%>
+					<a href="index/project?id=${projectsMostAffordable.projectCost.id}"> <img
 						src="/Volunteer_Overseas/resources/images/thumb16.jpg">
 					</a>
 					<div>
 						<label class="slider3-label1">Starting At </label>
-						<h4>$299/Week</h4>
-						<label class="slider3-label1">for weeks</label>
-						<h6>${projectsMostAffordable.activity.name}</h6>
+						<c:set var="y" value="${projectsMostAffordable.cost}"></c:set>
+						<c:set var="x" value="${projectsMostAffordable.number_of_weeks}"></c:set>
+						<fmt:parseNumber var = "j" type = "number" value = "${y/x}" integerOnly = "true" />
+						<h4>${j}/Weeks</h4>
+						<label class="slider3-label1">for ${x} weeks</label>
+						<h6>${projectsMostAffordable.projectCost.activity.name}</h6>
 					</div>
 					<figcaption>
-						<label>${projectsMostAffordable.country.name}</label>
-						<h6>${projectsMostAffordable.organization.name}</h6>
+						<label>${projectsMostAffordable.projectCost.country.name}</label>
+						<h6>${projectsMostAffordable.projectCost.organization.name}</h6>
 					</figcaption>
 				</div>
 				</c:forEach>
 			</div>
 		</div>
-
-
 	</div>
 	<%@include file="includes.jsp"%>
 	<script type="text/javascript">

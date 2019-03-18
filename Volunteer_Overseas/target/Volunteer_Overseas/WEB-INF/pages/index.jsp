@@ -1,29 +1,42 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@include file="includes.jsp" %> 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
-
 <link href="<c:url value="/resources/css1/main.css" />" rel="stylesheet">
 <link href="<c:url value="/resources/css/bootstrap.min.css" />" rel="stylesheet">
-<link href="<c:url value="/resources/css/navigation.css" />" rel="stylesheet">
-<link href="<c:url value="/resources/css/style.css" />" rel="stylesheet">
-<link href="<c:url value="/resources/css/media.css" />" rel="stylesheet">
-<script type="text/javascript" src="<c:url value="/resources/js1/jquery.js" />"></script>
-<%-- <script type="text/javascript" src="<c:url value="/resources/js/jquery.min.js" />"></script> --%>
+<script type="text/javascript" src="<c:url value="/resources/js1/jquery.js" />"></script> 
 <script type="text/javascript" src="<c:url value="/resources/js/bootstrap.js" />"></script>
-<style type="text/css">
+<link href="<c:url value="/resources/css/jquery-ui.css" />" rel="stylesheet">
+<link href="<c:url value="/resources/css/navigation.css" />" rel="stylesheet">
+<link href="<c:url value="/resources/css/owl.carousel.min.css" />" rel="stylesheet">
+<%-- <link href="<c:url value="/resources/css1/dropkick.css" />" rel="stylesheet">
+ --%><link href="<c:url value="/resources/css/style.css" />" rel="stylesheet">
+<link href="<c:url value="/resources/css/media.css" />" rel="stylesheet">
+<script type="text/javascript" src="<c:url value="/resources/js/jquery-ui.js" />"></script>
+<script type="text/javascript" src="<c:url value="/resources/js/owl.carousel.js" />"></script>
+<%--  <%@include file="includes.jsp" %>  
+ --%>
+<%-- <script type="text/javascript" src="<c:url value="/resources/js1/dropkick.min.js" />"></script>
+ --%><style type="text/css">
   html {
   scroll-behavior: smooth;
   }
-}
+div#owl-table table{border: 1px solid #ccc;}
+div#owl-table table th{text-align: center;background-color: #00ACC1;color: white;font-size: 18px;width: 25%;}
+div#owl-table table td{text-align: center;font-size: 16px;color: #00ACC1;}
+div#owl-table table td b{color: red;font-size: 18px;}
+div#owl-table .owl-nav button.owl-prev{left:1%;bottom:80%; position: absolute;}
+div#owl-table .owl-nav button.owl-next{right: 1%;bottom:80%; position: absolute;}
+div#owl-table .owl-nav button.owl-prev img{height: 25px;width: 15px;}
+div#owl-table .owl-nav button.owl-next img{height: 25px;width: 15px;}
 </style>
-</head>
+
+
 </head>
 <body>
    <!-- header -->
@@ -31,7 +44,7 @@
    <header>
                 <div class="row header-row" id ="menu">
                     <div class="col-lg-2 col-sm-3 col-xs-6 logo-outer">
-                        <a href="index.html" title="Volunteer Overseas" class="logo">
+                        <a href="homepage" title="Volunteer Overseas" class="logo">
                             <img class="color-logo1" src="/Volunteer_Overseas/resources/images/logo_1.png" alt="">
                         </a>
                     </div>
@@ -39,18 +52,18 @@
                         <nav>
                             <ul>    
                                 <li><a href="#" title="HOW IT WORKS">HOW IT WORKS</a></li>
-                                <li><a href="CONTACT US" title="CONTACT US">CONTACT US</a></li>
+                                <li><a href="contact" title="CONTACT US">CONTACT US</a></li>
                             </ul>
                         </nav>
                         <div class="right-block">
-                            <a href="login.html" class="btn" title="Login">Login</a>
+                            <a href="login" class="btn" title="Login">Login</a>
                         </div>
                     </div>
                 </div>
                 <a href="#" title="" class="hamburger-icon"><span></span></a>
             </header>
    <div>
-    <h1 class="sec1">Ghana Medical Volunteers</h1>
+    <h1 class="sec1">${project.title}</h1>
    </div> 
   <div>
    <button class="view1" data-toggle="modal" data-target="#img_gallery"><img src="/Volunteer_Overseas/resources/images/photos-icon.png"/>View Photos</button>
@@ -61,29 +74,25 @@
 
            <div class="row">
                 <div class="col-md-8">
-                <div class="div1">
-                  <h2 class="n1"><b>Ghana Medical Volunteers</b></h2>
+                <div class="div1 row">
+                  <h2 class="n1"><b>${project.title}</b></h2>
                     <p class="kumasi_ghana">
                       <img  src="/Volunteer_Overseas/resources/images/pin.png" id="div-img"/> 
                     Kumasi,Ghana</p> 
                 </div>
-                <div class="div2">
-                    <img src="/Volunteer_Overseas/resources/images/play-logo.png"><p><b>Plan My Gap Year</b></p>
-                    </img>      
+                <div class="div2 row" style="align-items:center">
+                    <img src="/Volunteer_Overseas/resources/images/play-logo.png"/>
+                    <h2 style="color: #00acc1"><b>&nbsp;${project.organization.name}</b></h2>
                 </div>
-                    <br><br>
-                    <div class="row">
-                                         
-                            <div class="col-md-4"><img src="/Volunteer_Overseas/resources/images/icon1.png">&nbsp;&nbsp;From $714 for 2 weeks</img>
+                    <div class="row">                   
+                            <div class="col-md-4 col-sm-6"><img src="/Volunteer_Overseas/resources/images/icon1.png">&nbsp;&nbsp;From $714 for 2 weeks</img>
                            </div>
-                            <div class="col-md-4">
+                            <div class="col-md-4 col-sm-6">
                             <img src="/Volunteer_Overseas/resources/images/icon2.png">&nbsp;&nbsp;2-24 weeks</img>
                            </div>
-                           <div class="col-md-4">
-                            <img src="/Volunteer_Overseas/resources/images/icon4.png">&nbsp;&nbsp;18 And older</img></div>
-                  
+                           <div class="col-md-4 col-sm-6">
+                            <img src="/Volunteer_Overseas/resources/images/icon4.png">&nbsp;&nbsp;${project.min_age} And older</img></div>
                     </div>
-<br/>
 <nav id="navbar-example2">
      <ul >
       <div class="link-style scroll_2">
@@ -106,31 +115,26 @@
             <h4 style="color:#e53b51;font-size:25px;">Overview</h4>
 
             <p class="text">
-                Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs. The passage is attributed to an unknown typesetter in the 15th century who is thought to have scrambled parts of Cicero's De Finibus Bonorum et Malorum for use in a type specimen book. It usually begins with.
-
-                <p class="text">The passage experienced a surge in popularity during the 1960s when Letraset used it on their dry-transfer sheets, and again during the 90s as desktop publishers bundled the text with their software. Today it's seen all around the web; on templates, websites, and stock designs. Use our generator to get your own, or read on for the authoritative history of lorem ipsum.</p>
+                ${project.overview_description}
+                ${project.overview_description}
+                ${project.overview_description}
             </p>
-
-                <br>
             <h4 style="color:#e53b51;font-size:25px;">field conditions</h4>
 
             <p class="text">
-                Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs. The passage is attributed to an unknown typesetter in the 15th century who is thought to have scrambled parts of Cicero's De Finibus Bonorum et Malorum for use in a type specimen book. It usually begins with.
-
-                <p class="text">The passage experienced a surge in popularity during the 1960s when Letraset used it on their dry-transfer sheets, and again during the 90s as desktop publishers bundled the text with their software. Today it's seen all around the web; on templates, websites, and stock designs. Use our generator to get your own, or read on for the authoritative history of lorem ipsum.McClintock's eye for detail certainly helped narrow the whereabouts of lorem ipsum's origin, however, the “how and when” still remain something of a mystery, with competing theories and timelines.</p>
-            </p>
+                ${project.accommodation_description}
+                </p>
 
             <br>
             <h4 style="color:#e53b51;font-size:25px;">Your Impact</h4>
 
             <p class="text">
-                Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs. The passage is attributed to an unknown typesetter in the 15th century who is thought to have scrambled parts of Cicero's De Finibus Bonorum et Malorum for use in a type specimen book. It usually begins with.
-                <p class="text">The passage experienced a surge in popularity during the 1960s when Letraset used it on their dry-transfer sheets, and again during the 90s as desktop publishers bundled the text with their software. Today it's seen all around the web; on templates, websites, and stock designs. Use our generator to get your own, or read on for the authoritative history of lorem ipsum.McClintock's eye for detail certainly helped narrow the whereabouts of lorem ipsum's origin, however, the “how and when” still remain something of a mystery, with competing theories and timelines.</p>
-
-                <p class="text">The passage experienced a surge in popularity during the 1960s when Letraset used it on their dry-transfer sheets, and again during the 90s as desktop publishers bundled the text with their software. Today it's seen all around the web; on templates, websites, and stock designs. Use our generator to get your own, or read on for the authoritative history of lorem ipsum.McClintock's eye for detail certainly helped narrow the whereabouts of lorem ipsum's origin, however, the “how and when” still remain something of a mystery, with competing theories and timelines. So how did the classical Latin become so incoherent? According to McClintock, a 15th century typesetter likely scrambled part of Cicero's De Finibus in order to provide placeholder text to mockup various fonts for a type specimen book.</p>
+                 ${project.imapact_description}
+                <p class="text">${project.imapact_description}</p>
+                <p class="text">${project.imapact_description}</p>
             </p>
             <video width="100%" height="340" controls>
-            <source src="/Volunteer_Overseas/resources/video/video.mp4" type="video/mp4">
+            <source src="/Volunteer_Overseas/resources/images/video.mp4" type="video/mp4">
             </video>
         </div>
 
@@ -153,7 +157,7 @@
      <div style="border-top: 3px solid #ccc;margin-top: 40px;" id="COST">
             <br >
                     <h2 style="color: #00acc1"><b>Cost</b></h2>
-                        <p class="text">The cost listed below includes registration fee of $193.00. The reminder or program fee is due 60 days prior to the start of your program.</p>
+                        <p class="text">${project.cost_description}</p>
      </div>
                     <br>
 
@@ -163,14 +167,23 @@
                             <tr>
                                 <td style="border-right: 1px solid #ccc">
                                      <h4 style="color:#00acc1"><img src="/Volunteer_Overseas/resources/images/icon2.png" style="padding-right: 10px"><b>Duration</b>
-                                        <select style="margin-left: 20px" id="d1" onclick="return change_cost()">
-                                <option value="2">2 weeks</option>
-                                <option value="3">3 weeks</option>
+                                        <select style="margin-left: 20px" id="d1">
+                                <!-- <option value="2">2 weeks</option>
+                                <option value="3">3 weeks</option> -->
+                                 
+                                <c:set var="weeks" value="${projectsweeks.number_of_weeks}"></c:set>
+                                <option>select Duration</option>
+                                	<c:forEach items="${projectDurationCost}" var="projectsweeks">
+                                	 <c:set var="cost" value="${projectsweeks.id}"></c:set>
+								    <option value="${cost}">${projectsweeks.number_of_weeks} Weeks</option>
+								  </c:forEach>
                                     </select></h4>
                                 </td>
                                  <td>
                                     <h4 style="color:#00acc1"><img src="/Volunteer_Overseas/resources/images/icon1.png"style="padding-right: 10px"><b >Cost: </b> 
-                                    <b style="color:#e53b51;margin-left: 40px" id="c1">$714</b></h4>
+                                    <b style="color:#e53b51;margin-left: 40px" id="c1">
+ 										                              
+                                    </b></h4>
                              </td>
                             </tr>
                                 </table>
@@ -182,125 +195,153 @@
                     <td><h3 style="color: #fff;background-color:#00acc1;text-align: center;"><b>Whats's Included</b></h3></td>
                     <td><h3 style="color: #fff;background-color:#e53b51;text-align: center;"><b>Whats's not Included</b></h3></td>
                 </tr>
-
-                <tr>    
+                    
+ 				<tr>    
                 <td>
-                <img src="/Volunteer_Overseas/resources/images/new-tick.png" style="height: 20px;width:20px"> Accommodation(Volunteer house)
-                </td>
-                <td>
-                <img src="/Volunteer_Overseas/resources/images/check.png" style="height: 20px;width: 20px"> Transport to project($0-$6 per Day)
-                </td>
-                </tr>
-
-                <tr>    
-                <td>
-                <img src="/Volunteer_Overseas/resources/images/new-tick.png" style="height: 20px;width: 20px"> Meals(Breakfast, Lunch, Dinner)
-                </td>
-                <td>
-                <img src="/Volunteer_Overseas/resources/images/check.png" style="height: 20px;width: 20px"> Flights to Accra($600-$1050)
+                <c:forEach items="${included}" var="include">
+                <img src="/Volunteer_Overseas/resources/images/new-tick.png" style="height: 20px;width: 20px"> ${include.description}</br>
+               </c:forEach>
+               </td>  
+                 <td>
+                 <c:forEach items="${notincluded}" var="notincluded">
+                <img src="/Volunteer_Overseas/resources/images/check.png" style="height: 20px;width: 20px"> ${notincluded.description}</br>
+                </c:forEach>
                 </td>
                 </tr>
-
-                <tr>    
-                <td>
-                <img src="/Volunteer_Overseas/resources/images/new-tick.png" style="height: 20px;width: 20px"> Airpot Pickup(24 hrs)
-                </td>
-                <td>
-                <img src="/Volunteer_Overseas/resources/images/check.png" style="height: 20px;width: 20px"> Travel Issurance($22.50 per week)
-                </td>
-                </tr>
-
-                <tr>    
-                <td>
-                <img src="/Volunteer_Overseas/resources/images/new-tick.png" style="height: 20px;width: 20px"> In country Orientation
-                </td>
-                <td>
-                <img src="/Volunteer_Overseas/resources/images/check.png" style="height: 20px;width: 20px"> Return Airport Transfer($75)
-                </td>
-                </tr>
-
-                <tr>    
-                <td>
-                <img src="/Volunteer_Overseas/resources/images/new-tick.png" style="height: 20px;width: 20px"> 24 hr in country support
-                </td>
-                <td>
-                <img src="/Volunteer_Overseas/resources/images/check.png" style="height: 20px;width: 20px"> visa($90-$150)
-                </td>
-                </tr>
-
-                <tr>    
-                <td>
-                <img src="/Volunteer_Overseas/resources/images/new-tick.png" style="height: 20px;width: 20px"> 24 hr UK based Support
-                </td>
-                <td>
-                <img src="/Volunteer_Overseas/resources/images/check.png" style="height: 20px;width: 20px"> Criminal Backgroung Check(Varies)
-                </td>
-                </tr>
-
-                <tr>    
-                <td>
-                <img src="/Volunteer_Overseas/resources/images/new-tick.png" style="height: 20px;width: 20px"> Live pre-departure webinars
-                </td>
-                <td>
-                </td>
-                </tr>
-
-                <tr>    
-                <td>
-                <img src="/Volunteer_Overseas/resources/images/new-tick.png" style="height: 20px;width: 20px"> 100% financial protection
-                </td>
-                <td>
-                </td>
-                </tr>
-
-                <tr>    
-                <td>
-                <img src="/Volunteer_Overseas/resources/images/new-tick.png" style="height: 20px;width: 20px"> Regular program Inception
-                </td>
-                <td>
-                </td>
-                </tr>
-
-                <tr>    
-                <td>
-                <img src="/Volunteer_Overseas/resources/images/new-tick.png" style="height: 20px;width: 20px"> Certification of Completion
-                </td>
-                <td>
-                </td>
-                </tr>       
-                
+               
             </table>  
         </div>
+        <hr>
         <!-- Dates -->
-        <div style="border-top: 3px solid #ccc;margin-top: 40px;" id="DATES">
+        <div id="DATES">
             <h2 style="color: #00acc1"><b>Project Start Dates</b></h2>
-            <p class="text">The passage experienced a surge in popularity during the 1960s when Letraset used it on their dry-transfer sheets, and again during the 90s as desktop publishers bundled the text with their software. Today it's seen all around the web; on templates, websites, and stock designs. Use our generator to get your own, or read on for the authoritative history of lorem ipsum.McClintock's eye for detail certainly helped narrow the whereabouts of lorem ipsum's origin, however, the “how and when” still remain something of a mystery, with competing theories and timelines. So how did the classical Latin become so incoherent? According to McClintock, a 15th century typesetter likely scrambled part of Cicero's De Finibus in order to provide placeholder text to mockup various fonts for a type specimen book.</p>  
+            <p class="text">${project.project_startdate_description}</p>  
                 <!-- div of last table-->
-            <div class="table-responsive t_dates">
-                
-                    <table class="table" cellpadding="5px" style="width: 100%;text-align:center;border:2px solid #ccc">
-                        <tr style="background-color:#00acc1;color: #fff">
-                            <td>January 2018</td>
-                            <td>Fabuary 2018</td>
-                            <td>March 2018</td>
-                            <td>April 2018</td>
-                        </tr>
-                        <tr style="color: #00acc1">
-                            <td><b style="color: #e53b51;">07</b> Sunday</td>
-                            <td><b style="color: #e53b51;">04</b> Sunday</td>
-                            <td><b style="color: #e53b51;">07</b> Sunday</td>
-                            <td><b style="color: #e53b51;">04</b> Sunday</td>
-                        </tr>
-                        <tr style="color: #00acc1">
-                            <td><b style="color: #e53b51;">21</b> Sunday</td>
-                            <td><b style="color: #e53b51;">18</b> Sunday</td>
-                            <td><b style="color: #e53b51;">21</b> Sunday</td>
-                            <td><b style="color: #e53b51;">18</b> Sunday</td>
-                        </tr>
-                    </table>
-            </div>
-        </div>
-
+				<div class="owl-carousel owl-theme" id="owl-table">
+					<div class="item">
+						<table class="table ">
+							<th>January 2018</th>
+							<tr>
+								<td><b>07</b> Sunday</td>
+							</tr>
+							<tr>
+								<td><b>21</b> Sunday</td>
+							</tr>
+						</table>
+					</div>
+					<div class="item">
+						<table class="table ">
+							<th>January 2018</th>
+							<tr>
+								<td><b>07</b> Sunday</td>
+							</tr>
+							<tr>
+								<td><b>21</b> Sunday</td>
+							</tr>
+						</table>
+					</div>
+					<div class="item">
+						<table class="table ">
+							<th>January 2018</th>
+							<tr>
+								<td><b>07</b> Sunday</td>
+							</tr>
+							<tr>
+								<td><b>21</b> Sunday</td>
+							</tr>
+						</table>
+					</div>
+					<div class="item">
+						<table class="table ">
+							<th>January 2018</th>
+							<tr>
+								<td><b>07</b> Sunday</td>
+							</tr>
+							<tr>
+								<td><b>21</b> Sunday</td>
+							</tr>
+						</table>
+					</div>
+					<div class="item">
+						<table class="table ">
+							<th>January 2018</th>
+							<tr>
+								<td><b>07</b> Sunday</td>
+							</tr>
+							<tr>
+								<td><b>21</b> Sunday</td>
+							</tr>
+						</table>
+					</div>
+					<div class="item">
+						<table class="table ">
+							<th>January 2018</th>
+							<tr>
+								<td><b>07</b> Sunday</td>
+							</tr>
+							<tr>
+								<td><b>21</b> Sunday</td>
+							</tr>
+						</table>
+					</div>
+					<div class="item">
+						<table class="table ">
+							<th>January 2018</th>
+							<tr>
+								<td><b>07</b> Sunday</td>
+							</tr>
+							<tr>
+								<td><b>21</b> Sunday</td>
+							</tr>
+						</table>
+					</div>
+					<div class="item">
+						<table class="table ">
+							<th>January 2018</th>
+							<tr>
+								<td><b>07</b> Sunday</td>
+							</tr>
+							<tr>
+								<td><b>21</b> Sunday</td>
+							</tr>
+						</table>
+					</div>
+					<div class="item">
+						<table class="table ">
+							<th>January 2018</th>
+							<tr>
+								<td><b>07</b> Sunday</td>
+							</tr>
+							<tr>
+								<td><b>21</b> Sunday</td>
+							</tr>
+						</table>
+					</div>
+					<div class="item">
+						<table class="table ">
+							<th>January 2018</th>
+							<tr>
+								<td><b>07</b> Sunday</td>
+							</tr>
+							<tr>
+								<td><b>21</b> Sunday</td>
+							</tr>
+						</table>
+					</div>
+					<div class="item">
+						<table class="table ">
+							<th>January 2018</th>
+							<tr>
+								<td><b>07</b> Sunday</td>
+							</tr>
+							<tr>
+								<td><b>21</b> Sunday</td>
+							</tr>
+						</table>
+					</div>
+				</div>
+			</div>
+			
 <!-- Organization -->
 <div style="border-top: 3px solid #ccc;margin-top: 40px;" id="ORGANIZATION">
             <h2 style="color: #00acc1"><b>Organization</b></h2>
@@ -312,26 +353,26 @@
                   
         <div class="container views">
   
- <button type="submit" class="btn btn-primary form-control" data-toggle="modal" data-target="#exampleModal" id="apply_now" value="0" onclick="validate_apply_now()">Apply Now ^</button>
+ <button type="submit" class="btn btn-primary form-control" data-toggle="modal" data-target="#exampleModall" id="apply_now" value="0" onclick="validate_apply_now()">Apply Now ^</button>
  </div>
                         <!-- col 8 s div -->
 </div>
                         <!-- col 4 started -->
          <div class="col-md-4 secnd-clm">
             <div>
-       <form class="right1 form-group ">
-        <label style="background : rgba(0,0,0,0.1);text-align: center;">23 people searching this project</label>
-        <label for="date"> project Start date</label>
+       <form class="right1 form-group" >
+        <label  class="text-light" style="background : rgba(0,0,0,0.1);"><b>23 people</b> searching this project</label>
+        <label for="date" class="form-group text-light">Project Start date</label>
         <div class="input-group mb-3">
                     <div class="input-group-prepend">
-                     <span class="input-group-text" id="basic-addon1"><img src="/Volunteer_Overseas/resources/images/icon3.png"/></span>
+                    <span class="input-group-text" id="basic-addon1"><img src="/Volunteer_Overseas/resources/images/icon3.png"/></span>
          </div>
-        <input type="text" class="form-control" id="datepicker" aria-label="Default">
+         
+        <input type="text" class="form-control" id="datepicker" aria-label="Default" required>
         </div>
   
         
-        <label for="duration">Duration</label>
-        <br>
+        <label for="duration" class="form-group text-light">Duration</label>
         <select  class="form-control dur1" id="select_week">
             <option selected value="">Choose one</option>
             <option value="2">2 weeks</option>
@@ -340,7 +381,7 @@
         </select>
         <br>
         
-        <button type="button" class="btn btn-primary form-control"  data-toggle="modal" data-target="#exampleModal" id="apply_now1" value="0" onclick="validate_apply_now()">Apply Now</button>
+        <button type="button" class="btn btn-primary form-control"  data-toggle="modal" data-target="#exampleModall" id="apply_now1" value="0" onclick="validate_apply_now()">Apply Now</button>
         <br><br>
         <label style="font-size: 10px">Applying through volunteer Overseats gets you access to exclusive <u>travel scholarship</u> and a no-fee <u> fundraising plateform </u></label>
         <br><br>
@@ -351,7 +392,7 @@
  </div> 
       </section>
 <!-- model section -->
-<div class="sign_up modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" href="#myModal">
+<div class="sign_up modal fade" id="exampleModall" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" href="#myModal">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -360,34 +401,37 @@
       <div class="modal-body">
         <div class="container-fluid row">
           <div id="apply_for_signup">
-            <form class="form-group" name="signup">
-              <label>Full Name</label>
-              <input type="text" id="Full_name" class="form-control">
+            <form class="form-group" name="signup" action="signup" method="get">
+              <label class="form-group">Full Name</label>
+              <input type="text" id="Full_name" name="Full_name" class="form-control" required>
               <label style="padding-top: 10px;">Project Start Date</label>
               <div class="input-group mb-3">
               <div class="input-group-prepend">
                 <span class="input-group-text" id="basic-addon1"><img src="/Volunteer_Overseas/resources/images/icon3.png"/></span>
               </div>
-              <input type="text" class="form-control" id="datepicker1">
+              <input type="text" class="form-control" id="datepicker1" name="datepicker1">
               </div>
-             <label>Duration</label>
+             <label class="form-group">Duration</label>
                   <select  class="form-control dur1" name="dur1" id="select_week1">
                   <option value="" selected>Choose one</option>
                   <option value="2">2 weeks</option>
                   <option value="3">3 weeks</option>
                   <option value="4">4 weeks</option>
               </select>
-              <label style="padding-top: 10px;">Email</label>
-              <input type="Email" id="mail" class="form-control">
-              <label style="padding-top: 10px;">Phone</label>
-              <input type="number"  class="form-control" onkeydown="javascript: return event.keyCode == 69 ? false : true" id="phone">
+              <label class="form-group" style="padding-top: 10px;">Email</label>
+              <input type="text" id="mail" class="form-control" name="mail">
+              <label  class="form-group" style="padding-top: 10px;">Phone</label>
+              <input type="text"  class="form-control" onkeydown="javascript: return event.keyCode == 69 ? false : true" id="phone" name="phone" required>
+              <input type="hidden" value="${project.id}" name="projectid">
+       			 <button type="submit" class="btn btn-primary" onclick="return validate_sign_up()">Sign up</button>
+      
             </form>
           </div>
         </div>
       </div>
-      <div>
+     <!--  <div>
         <button type="submit" class="btn btn-primary" onclick="return validate_sign_up()">Sign up</button>
-      </div>
+      </div> -->
     </div>
   </div>
 </div>
@@ -445,28 +489,58 @@
 
 <div class="footer">
         <div class="row">
-        <img src="/Volunteer_Overseas/resources/images/logo_1.png" >
+		<a href="homepage"><img src="/Volunteer_Overseas/resources/images/logo_1.png" ></a>
         <span>
-        <a href="contact_us.html">CONTACT US</a>
-        <a href="faq.html">FAQ</a>
+        <a href="contact">CONTACT US</a>
+        <a href="faq">FAQ</a>
         </span>
     </div> 
  </div>
         <!-- Script Part -->
-
-<%--         <script type="text/javascript" src="<c:url value="/resources/js/cdn.js" />"></script>  --%>
-		<script type="text/javascript" src="<c:url value="/resources/js/bootstrap.js" />"></script>
+     	<%-- <script type="text/javascript" src="<c:url value="/resources/js/cdn.js" />"></script>  --%>
 		<script type="text/javascript" src="<c:url value="/resources/js/validate.js" />"></script>
-		<script type="text/javascript" src="<c:url value="/resources/js/default.js" />"></script> 
+		<%-- <script type="text/javascript" src="<c:url value="/resources/js/default.js" />"></script>  --%>
         <script type="text/javascript" src="<c:url value="/resources/js1/validation.js" />"></script>
-        <script type="text/javascript">
+		<script type="text/javascript">
+		$('#owl-table')
+				.owlCarousel(
+						{
+
+							nav : true,
+							navText : [
+									'<img src="/Volunteer_Overseas/resources/images/left-white-arrow.png">',
+									'<img src="/Volunteer_Overseas/resources/images/right-white-arrow.png">' ],
+							responsive : {
+								0 : {
+									items : 2
+								},
+
+								425 : {
+									items : 2
+								},
+								769 : {
+									items : 3
+								},
+								1024 : {
+									items : 4
+								}
+							}
+						})
+	</script>
+	<script type="text/javascript">
          $( function() {
     $( "#datepicker" ).datepicker();
-    $(".dur1").dropkick({
+   /*  $(".dur1").dropkick({
         mobile:true
-    });
+    }); */
   } );
 
+         $( function() {
+        	    $( "#datepicker1" ).datepicker();
+        	    /* $(".dur1").dropkick({
+        	        mobile:true
+        	    }); */
+        	  } );
 </script>
 <script type="text/javascript">
 
@@ -480,18 +554,28 @@
       })
      });    
     </script>
-     <script type="text/javascript">
-    function change_cost(){
-     var change = document.getElementById("d1").value;
-     if(change=="2")
-     {
-      document.getElementById("c1").innerHTML = "$714";
-     }
-     if(change=="3")
-     {
-      document.getElementById("c1").innerHTML = "$814";
-     }
-   }
+   <script type="text/javascript">
+   		$(document).ready(function(){
+				$('#d1').change(function() {
+					var idx = $(this).val();
+					$.ajax({
+						url: "/Volunteer_Overseas/index/ProjectCost",
+						type: "GET",
+						data: {	
+							id:idx
+						},
+						 dataType: "json",
+						success: function(result){
+							if(!result){
+								$("#c1").html();
+							}else{
+							$("#c1").html(result);	
+							}
+						}
+					})
+					
+				})			
+		});
    </script>
    <script type="text/javascript">
    
@@ -514,7 +598,7 @@
     $(document).ready(function(){
 
         $(window).scroll(function(){
-        if ($(window).scrollTop() >= 400) {
+        if ($(window).scrollTop() >= 10) {
             
             $('#menu').addClass('fixed-header2');
             $('.color-logo1').attr('src','/Volunteer_Overseas/resources/images/logo.png');

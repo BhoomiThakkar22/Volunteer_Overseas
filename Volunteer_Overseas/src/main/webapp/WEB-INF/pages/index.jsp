@@ -52,7 +52,7 @@ div#owl-table .owl-nav button.owl-next img{height: 25px;width: 15px;}
                         <nav>
                             <ul>    
                                 <li><a href="#" title="HOW IT WORKS">HOW IT WORKS</a></li>
-                                <li><a href="contact_us" title="CONTACT US">CONTACT US</a></li>
+                                <li><a href="contact" title="CONTACT US">CONTACT US</a></li>
                             </ul>
                         </nav>
                         <div class="right-block">
@@ -82,7 +82,7 @@ div#owl-table .owl-nav button.owl-next img{height: 25px;width: 15px;}
                 </div>
                 <div class="div2 row" style="align-items:center">
                     <img src="/Volunteer_Overseas/resources/images/play-logo.png"/>
-                    <h2 style="color: #00acc1"><b> &nbsp;&nbsp;${project.organization.name}</b></h2>
+                    <h2 style="color: #00acc1"><b>&nbsp;${project.organization.name}</b></h2>
                 </div>
                     <div class="row">                   
                             <div class="col-md-4 col-sm-6"><img src="/Volunteer_Overseas/resources/images/icon1.png">&nbsp;&nbsp;From $714 for 2 weeks</img>
@@ -167,17 +167,23 @@ div#owl-table .owl-nav button.owl-next img{height: 25px;width: 15px;}
                             <tr>
                                 <td style="border-right: 1px solid #ccc">
                                      <h4 style="color:#00acc1"><img src="/Volunteer_Overseas/resources/images/icon2.png" style="padding-right: 10px"><b>Duration</b>
-                                        <select style="margin-left: 20px" id="d1" onclick="return change_cost()">
+                                        <select style="margin-left: 20px" id="d1">
                                 <!-- <option value="2">2 weeks</option>
                                 <option value="3">3 weeks</option> -->
-                                <c:forEach items="${project}" var="projects">
-								<option value="${projects.projectCostsDetails.number_of_weeks}">${projects.projectCostsDetails.number_of_weeks}</option>
-								</c:forEach> 
+                                 
+                                <c:set var="weeks" value="${projectsweeks.number_of_weeks}"></c:set>
+                                <option>select Duration</option>
+                                	<c:forEach items="${projectDurationCost}" var="projectsweeks">
+                                	 <c:set var="cost" value="${projectsweeks.id}"></c:set>
+								    <option value="${cost}">${projectsweeks.number_of_weeks} Weeks</option>
+								  </c:forEach>
                                     </select></h4>
                                 </td>
                                  <td>
                                     <h4 style="color:#00acc1"><img src="/Volunteer_Overseas/resources/images/icon1.png"style="padding-right: 10px"><b >Cost: </b> 
-                                    <b style="color:#e53b51;margin-left: 40px" id="c1">$714</b></h4>
+                                    <b style="color:#e53b51;margin-left: 40px" id="c1">
+ 										                              
+                                    </b></h4>
                              </td>
                             </tr>
                                 </table>
@@ -347,7 +353,7 @@ div#owl-table .owl-nav button.owl-next img{height: 25px;width: 15px;}
                   
         <div class="container views">
   
- <button type="submit" class="btn btn-primary form-control" data-toggle="modal" data-target="#exampleModal" id="apply_now" value="0" onclick="validate_apply_now()">Apply Now ^</button>
+ <button type="submit" class="btn btn-primary form-control" data-toggle="modal" data-target="#exampleModall" id="apply_now" value="0" onclick="validate_apply_now()">Apply Now ^</button>
  </div>
                         <!-- col 8 s div -->
 </div>
@@ -375,7 +381,7 @@ div#owl-table .owl-nav button.owl-next img{height: 25px;width: 15px;}
         </select>
         <br>
         
-        <button type="button" class="btn btn-primary form-control"  data-toggle="modal" data-target="#exampleModal" id="apply_now1" value="0" onclick="validate_apply_now()">Apply Now</button>
+        <button type="button" class="btn btn-primary form-control"  data-toggle="modal" data-target="#exampleModall" id="apply_now1" value="0" onclick="validate_apply_now()">Apply Now</button>
         <br><br>
         <label style="font-size: 10px">Applying through volunteer Overseats gets you access to exclusive <u>travel scholarship</u> and a no-fee <u> fundraising plateform </u></label>
         <br><br>
@@ -386,7 +392,7 @@ div#owl-table .owl-nav button.owl-next img{height: 25px;width: 15px;}
  </div> 
       </section>
 <!-- model section -->
-<div class="sign_up modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" href="#myModal">
+<div class="sign_up modal fade" id="exampleModall" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" href="#myModal">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -485,7 +491,7 @@ div#owl-table .owl-nav button.owl-next img{height: 25px;width: 15px;}
         <div class="row">
 		<a href="homepage"><img src="/Volunteer_Overseas/resources/images/logo_1.png" ></a>
         <span>
-        <a href="contact_us">CONTACT US</a>
+        <a href="contact">CONTACT US</a>
         <a href="faq">FAQ</a>
         </span>
     </div> 
@@ -548,18 +554,28 @@ div#owl-table .owl-nav button.owl-next img{height: 25px;width: 15px;}
       })
      });    
     </script>
-     <script type="text/javascript">
-    function change_cost(){
-     var change = document.getElementById("d1").value;
-     if(change=="2")
-     {
-      document.getElementById("c1").innerHTML = "$714";
-     }
-     if(change=="3")
-     {
-      document.getElementById("c1").innerHTML = "$814";
-     }
-   }
+   <script type="text/javascript">
+   		$(document).ready(function(){
+				$('#d1').change(function() {
+					var idx = $(this).val();
+					$.ajax({
+						url: "/Volunteer_Overseas/index/ProjectCost",
+						type: "GET",
+						data: {	
+							id:idx
+						},
+						 dataType: "json",
+						success: function(result){
+							if(!result){
+								$("#c1").html();
+							}else{
+							$("#c1").html(result);	
+							}
+						}
+					})
+					
+				})			
+		});
    </script>
    <script type="text/javascript">
    

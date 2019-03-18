@@ -7,7 +7,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
-<link href="<c:url value="/resources/css/bootstrap.min.css"/>"
+<link href="<c:url value="/resources/css/bootstrap.min.css"/>"	
 	rel="stylesheet">
 <link href="<c:url value="/resources/css/bootstrap-grid.css"/>"
 	rel="stylesheet">
@@ -18,7 +18,8 @@
 <link href="<c:url value="/resources/css/temp.css" />" rel="stylesheet">
 <link href="<c:url value="/resources/css/MediaHome.css"/>"
 	rel="stylesheet">
-
+<style type="text/css">
+</style>
 </head>
 <body>
 	<header class="search-banner container-fluid">
@@ -59,10 +60,8 @@
 				<ul class="navbar-nav mr-auto">
 					<li class="nav-item "><a class="nav-link" href="#">HOW IT
 							WORKS</a></li>
-					<li class="nav-item "><a class="nav-link" href="#">CONTACT
+					<li class="nav-item "><a class="nav-link" href="contact">CONTACT
 							US</a></li>
-
-
 				</ul>
 				<form class="form-inline my-2 my-lg-0">
 					<button class="form-control btn btn-outline-success my-2 my-sm-0"
@@ -70,129 +69,97 @@
 				</form>
 			</div>
 		</nav>
-
 		<div>
 			<h1>Discover Yourself, Discover the World</h1>
 			<h3>Apply to your perfect volunteer, intern, or teach abroad
 				program.</h3>
 
 			<div class="container-fluid search-bar">
-				<form class="form">
+				<form action="search_result" method="get" name="searchform">
 				<div class="row">
-				
 					<div class="col-sm-3 form-group">
-
 						<label>Type</label> <select class="form-control home-select-1"
-							id="myselect">
-							<%-- <c:forEach items="${categories}" var="category">
-							<option value="${category.id}">${category.name}</option>
-							
-							</c:forEach> --%>
-							<option value="1">Volunteer Abroad</option>
-							<option value="1">2</option>
-							<option value="1">3</option>
-							<option value="1">4</option>
-							<option value="1">5</option> 
+							id="searchbar-category" name="searchbar-category">
+							 <c:forEach items="${categories}" var="category">
+								<option value="${category.name}">${category.name}</option>
+							 </c:forEach> 
 						</select>
-
 					</div>
 					<div class="col-sm-4 form-group">
-						<label>Location</label> <input type="text"
-							class="form-control search-input" value="Anywhere">
+						<label>Location</label> <input type="text" id="searchbar-location" name="searchbar-location"
+							class="form-control search-input" required="required" placeholder="Anyhwhere">
 					</div>
 					<div class="col-sm-3 form-group">
-
-						<label>Activity</label> <select class="form-control home-select-2">
-							<option value="1">Anything</option>
-							<option value="1">2</option>
-							<option value="1">3</option>
-							<option value="1">4</option>
-							<option value="1">5</option>
+						<label>Activity</label> <select  id="searchbar-activity" class="form-control home-select-2" name="searchbar-activity">
+						 <c:forEach items="${activities}" var="activities">
+							<option value="${activities.name}">${activities.name}</option>
+						</c:forEach> 
 						</select>
-
 					</div>
 					<div class="col-sm-2 form-group">
-						<a href="search_result"><button type="submit" class=" btn-danger">Search</button></a>
+						<button type="submit" class=" btn-danger">Search</button>
 					</div>
-					
 				</div>
 				</form>
 			</div>
 		</div>
 	</header>
-
-
 	<div class="container-fluid">
 
 		<div class="container-fluid" id="slider1">
 			<h2>Trending Projects</h2>
 			<div class="owl-carousel owl-nav">
-				<%
-					for (int i = 0; i < 10; i++) {
-				%>
+			<c:forEach items="${projectsTrending}" var="projects">
 				<div class="item">
-					<a href="index"><img
+					<a href="index/project?id=${projects.id}"><img
 						src="/Volunteer_Overseas/resources/images/thumb01.jpg" /></a>
 					<div>
-						<label class="label1"> Cost Rice </label>
-						<h6>MEDICAL SUPPORT IN QAPOS</h6>
-						<p>Global Vlounteering International</p>
+						<label class="label1">${projects.country.name}</label>
+						<h6>${projects.activity.name}</h6>
+						<p>${projects.organization.name}</p>
 						<label class="label2">12 people researching this project</label>
 					</div>
 				</div>
-				<%
-					}
-				%>
+			</c:forEach>
 			</div>
 		</div>
 		<div class="container-fluid" id="slider2">
 			<h2>Feature Destinations</h2>
 			<div class="owl-carousel">
-				<%
-					for (int i = 0; i < 10; i++) {
-				%>
+				<c:forEach items="${projectFeaturedest}" var="projects">
 				<div class="item">
-					<a href="index"><img
+					<a href="index/project?id=${projects.id}"><img
 						src="/Volunteer_Overseas/resources/images/thumb10.jpg" /></a>
 					<div>
 						<label class="slider2-label"> 37 Projects in </label>
-						<h6>KENAY</h6>
+						<h6>${projects.country.name}</h6>
 					</div>
 				</div>
-				<%
-					}
-				%>
+				</c:forEach>
 			</div>
 		</div>
 		<div class="container-fluid " id="slider3">
 			<h2>Most Affordable Project</h2>
 			<div class="owl-carousel">
-				<%
-					for (int i = 0; i < 10; i++) {
-				%>
+				<c:forEach items="${projectsMostAffordable}" var="projectsMostAffordable">
 				<div class="item">
-					<a href="index"> <img
+					<a href="index/project?id=${projectsMostAffordable.id}"> <img
 						src="/Volunteer_Overseas/resources/images/thumb16.jpg">
 					</a>
 					<div>
 						<label class="slider3-label1">Starting At </label>
-						<h4>$299/Week</h4>
-						<label class="slider3-label1">for 4 weeks</label>
-						<h6>Surf School for Children</h6>
+						<h4>${cost}/Week</h4>
+						<label class="slider3-label1">for weeks</label>
+						<h6>${projectsMostAffordable.activity.name}</h6>
 					</div>
 					<figcaption>
-						<label>South Africa</label>
-						<h6>Global Volunteering International</h6>
+						<label>${projectsMostAffordable.country.name}</label>
+						<h6>${projectsMostAffordable.organization.name}</h6>
 					</figcaption>
 				</div>
-				<%
-					}
-				%>
-
+				</c:forEach>
 			</div>
 		</div>
-
-
 	</div>
 	<%@include file="includes.jsp"%>
 	<script type="text/javascript">

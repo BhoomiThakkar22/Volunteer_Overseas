@@ -34,20 +34,15 @@
 p img {
 	border-radius: 10px;
 }
-option{
-background-color:black;
-}
 .ui-widget-header {
 	background: #00acc1;
 }
-
 .ui-state-active, .ui-widget-content .ui-state-active, .ui-widget-header .ui-state-active,
 	a.ui-button:active, .ui-button:active, .ui-button.ui-state-active:hover
 	{
 	background: #00acc1;
 }
 </style>
-
 </head>
 <body>
 	<div class="sch fixed-top">
@@ -62,14 +57,13 @@ background-color:black;
 				aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"></span>
 			</button>
-
 			<div class="collapse navbar-collapse back"
 				id="navbarSupportedContent">
 				<ul class="navbar-nav mr-auto">
 					<li class="nav-item active"><a class="nav-link" href="#"
 						style="color: #00acc1; font-size: 16px;">HOW IT WORKS<span
 							class="sr-only">(current)</span></a></li>
-					<li class="nav-item"><a class="nav-link" href="contact_us"
+					<li class="nav-item"><a class="nav-link" href="contact"
 						style="color: #00acc1; font-size: 16px;">CONTACT US</a></li>
 
 				</ul>
@@ -81,7 +75,6 @@ background-color:black;
 			</div>
 		</nav>
 	</div>
-
 	<div class="container-fluid "
 		style="padding-left: 50px; padding-right: 50px; padding-top: 105px;">
 		<div class="row bg-light" style="padding-top: 10px;">
@@ -113,7 +106,6 @@ background-color:black;
 					name="search-result-textcountry" value="${location}">
 			</div>
 			<div class="col-md-3 acm">
-
 				<div>
 					<label style="color: #00acc1; font-size: 14px;">Activity</label>
 				</div>
@@ -143,11 +135,8 @@ background-color:black;
 							style="float: right; border: 1px solid #00acc1; border-radius: 0px; margin-right: 7px; height: 20px; width: 20px; margin-bottom: 19px;">
 					</P>
 				</div>
-
 				<!-- For mobile -->
-
 				<div style="padding-top: 25px">
-
 					<button type="button" class="btn btnmf more-filters-btn"
 						data-toggle="modal" data-target="#exampleModal">
 						More Filters<span
@@ -173,38 +162,169 @@ background-color:black;
 											</div>
 											<div class="row">
 												<div class="col-4">
-													<select class="custom-select dpd">
-														<option selected>month</option>
-													</select>
+												<select class="custom-select dpd">
+													<option selected>month</option>
+													<option value="01">1</option>
+													<option value="02">2</option>
+													<option value="03">3</option>
+													<option value="04">4</option>
+													<option value="05">5</option>
+													<option value="06">6</option>
+													<option value="07">7</option>
+													<option value="08">8</option>
+													<option value="09">9</option>
+													<option value="10">10</option>
+													<option value="11">11</option>
+													<option value="12">12</option>
+												</select>
 												</div>
 												<div class="col-4">
 													<select class="custom-select dpd">
 														<option selected>dd</option>
+														<option value="01">1</option>
+													<option value="02">2</option>
+													<option value="03">3</option>
+													<option value="04">4</option>
+													<option value="05">5</option>
+													<option value="06">6</option>
+													<option value="07">7</option>
+													<option value="08">8</option>
+													<option value="09">9</option>
+													<option value="10">10</option>
+													<option value="11">11</option>
+													<option value="12">12</option>
+													<option value="13">13</option>
+													<option value="14">14</option>
+													<option value="15">15</option>
+													<option value="16">16</option>
+													<option value="17">17</option>
+													<option value="18">18</option>
+													<option value="19">19</option>
+													<option value="20">20</option>
+													<option value="21">21</option>
+													<option value="22">22</option>
+													<option value="23">23</option>
+													<option value="24">24</option>
+													<option value="25">25</option>
+													<option value="26">26</option>
+													<option value="27">27</option>
+													<option value="28">28</option>
+													<option value="29">29</option>
+													<option value="30">30</option>
+													<option value="31">31</option>
 													</select>
 												</div>
 												<div class="col-4">
 													<select class="custom-select dpd">
 														<option selected>yyyy</option>
+														<option value="2000">2000</option>
+														<option value="2001">2001</option>
+														<option value="2002">2002</option>
+														<option value="2003">2003</option>
+														<option value="2004">2004</option>
+														<option value="2005">2005</option>
+														<option value="2006">2006</option>
+														<option value="2007">2007</option>
+														<option value="2008">2008</option>
+														<option value="2009">2009</option>
+														<option value="2010">2010</option>
+														<option value="2011">2011</option>
+														<option value="2012">2012</option>
+														<option value="2013">2013</option>
+														<option value="2014">2014</option>
+														<option value="2015">2015</option>
+														<option value="2016">2016</option>
+														<option value="2017">2017</option>
+														<option value="2018">2018</option>
+														<option value="2019">2019</option>
+														<option value="2020">2020</option>
+														<option value="2021">2021</option>
+														<option value="2022">2022</option>
+														<option value="2023">2023</option>
 													</select>
 												</div>
 											</div>
-
-
-
 											<div class="row" style="padding-top: 20px">
 												<div class="col-4">
 													<select class="custom-select dpd">
 														<option selected>month</option>
+														<option value="01">1</option>
+														<option value="02">2</option>
+														<option value="03">3</option>
+														<option value="04">4</option>
+														<option value="05">5</option>
+														<option value="06">6</option>
+														<option value="07">7</option>
+														<option value="08">8</option>
+														<option value="09">9</option>
+														<option value="10">10</option>
+														<option value="11">11</option>
+														<option value="12">12</option>
 													</select>
 												</div>
 												<div class="col-4">
 													<select class="custom-select dpd">
 														<option selected>dd</option>
+														<option value="01">1</option>
+													<option value="02">2</option>
+													<option value="03">3</option>
+													<option value="04">4</option>
+													<option value="05">5</option>
+													<option value="06">6</option>
+													<option value="07">7</option>
+													<option value="08">8</option>
+													<option value="09">9</option>
+													<option value="10">10</option>
+													<option value="11">11</option>
+													<option value="12">12</option>
+													<option value="13">13</option>
+													<option value="14">14</option>
+													<option value="15">15</option>
+													<option value="16">16</option>
+													<option value="17">17</option>
+													<option value="18">18</option>
+													<option value="19">19</option>
+													<option value="20">20</option>
+													<option value="21">21</option>
+													<option value="22">22</option>
+													<option value="23">23</option>
+													<option value="24">24</option>
+													<option value="25">25</option>
+													<option value="26">26</option>
+													<option value="27">27</option>
+													<option value="28">28</option>
+													<option value="29">29</option>
+													<option value="30">30</option>
+													<option value="31">31</option>
 													</select>
 												</div>
 												<div class="col-4">
 													<select class="custom-select dpd">
 														<option selected>yyyy</option>
+														<option value="2000">2000</option>
+														<option value="2001">2001</option>
+														<option value="2002">2002</option>
+														<option value="2003">2003</option>
+														<option value="2004">2004</option>
+														<option value="2005">2005</option>
+														<option value="2006">2006</option>
+														<option value="2007">2007</option>
+														<option value="2008">2008</option>
+														<option value="2009">2009</option>
+														<option value="2010">2010</option>
+														<option value="2011">2011</option>
+														<option value="2012">2012</option>
+														<option value="2013">2013</option>
+														<option value="2014">2014</option>
+														<option value="2015">2015</option>
+														<option value="2016">2016</option>
+														<option value="2017">2017</option>
+														<option value="2018">2018</option>
+														<option value="2019">2019</option>
+														<option value="2020">2020</option>
+														<option value="2021">2021</option>
+														<option value="2022">2022</option>
+														<option value="2023">2023</option>
 													</select>
 												</div>
 											</div>
@@ -215,16 +335,12 @@ background-color:black;
 											<label>Duration</label>
 											<!-- <input type="range"  class="form-control" min="1" max="100" > -->
 											<p>
-
 												<input type="text" id="amount_min"> <input
 													type="text" id="amount_max">
 											</p>
-
 											<div id="slider-range1" class="price-filter-range"
 												name="rangeInput"></div>
-
-
-										</div>
+											</div>
 										<!------------------------------------- this is end of slider --------------------------------------------->
 										<div class="col-md-4">
 											<div>
@@ -233,9 +349,7 @@ background-color:black;
 											</div>
 											<div style="padding-top: 15px">
 												<form class="form-group">
-													<select class="form-control">
-														<option>--</option>
-													</select>
+													<input type="number" class="form-control" name ="minage" />
 												</form>
 											</div>
 										</div>
@@ -251,9 +365,7 @@ background-color:black;
 										</div>
 									</div>
 								</div>
-
 							</div>
-
 						</div>
 					</div>
 				</div>
@@ -281,6 +393,39 @@ background-color:black;
 					<div class="modal-dialog " role="document">
 						<div class="modal-content side_tab">
 							<div class="modal-body">
+								<form action="search_result/moreFilter">
+								<div class="d-none">
+									<c:forEach items="${categories}" var="categories">
+										<c:if test="${categories.name ==category}">
+											<div class="custom-control custom-checkbox custom-control-inline">
+												<input style="background-color: #e53b51;" type="checkbox"
+													name="modelcategory" value="${categories.name}" class="custom-control-input" id="${categories.name}" checked>
+												<label class="custom-control-label" value="${categories.name}">${categories.name}</label>
+											</input>
+											</div>
+										</c:if>
+										<c:if test="${categories.name != category}">
+											<div class="custom-control custom-checkbox custom-control-inline">
+												<input style="background-color: #e53b51;" type="checkbox"
+													class="custom-control-input" id="${categories.name}" name="${categories.name}"> <label
+													class="custom-control-label" for="${categories.name}">${categories.name}</label>
+											</div>
+										</c:if>
+									</c:forEach>
+									<input class="form-control" type="text"
+										name="modellocation" value="${location}">
+									<select class="custom-select" name="modelactivity">
+										<c:forEach items="${activities}" var="activities">
+											<c:set var="activity" value="${activity}"></c:set>
+											<c:if test="${activities.name != activity}">
+												<option value="${activities.name}">${activities.name}</option>
+											</c:if>
+											<c:if test="${activities.name== activity}">
+												<option value="${activities.name}" selected>${activities.name}</option>
+											</c:if>
+										</c:forEach>
+									</select>
+								</div>
 								<div class="row">
 									<div class="col-lg-4">
 										<div>
@@ -288,58 +433,182 @@ background-color:black;
 												date(range)</label> <input type="reset" class="reset">
 										</div>
 										<div class="row">
-
-
 											<div class="col-4">
-												<select class="custom-select">
+												<select class="custom-select" name="month">
 													<option selected>month</option>
+													<option value="01">1</option>
+													<option value="02">2</option>
+													<option value="03">3</option>
+													<option value="04">4</option>
+													<option value="05">5</option>
+													<option value="06">6</option>
+													<option value="07">7</option>
+													<option value="08">8</option>
+													<option value="09">9</option>
+													<option value="10">10</option>
+													<option value="11">11</option>
+													<option value="12">12</option>
 												</select>
 											</div>
 											<div class="col-4">
-												<select class="custom-select">
+												<select class="custom-select" name="day">
 													<option selected>dd</option>
+													<option value="01">1</option>
+													<option value="02">2</option>
+													<option value="03">3</option>
+													<option value="04">4</option>
+													<option value="05">5</option>
+													<option value="06">6</option>
+													<option value="07">7</option>
+													<option value="08">8</option>
+													<option value="09">9</option>
+													<option value="10">10</option>
+													<option value="11">11</option>
+													<option value="12">12</option>
+													<option value="13">13</option>
+													<option value="14">14</option>
+													<option value="15">15</option>
+													<option value="16">16</option>
+													<option value="17">17</option>
+													<option value="18">18</option>
+													<option value="19">19</option>
+													<option value="20">20</option>
+													<option value="21">21</option>
+													<option value="22">22</option>
+													<option value="23">23</option>
+													<option value="24">24</option>
+													<option value="25">25</option>
+													<option value="26">26</option>
+													<option value="27">27</option>
+													<option value="28">28</option>
+													<option value="29">29</option>
+													<option value="30">30</option>
+													<option value="31">31</option>
 												</select>
 											</div>
 											<div class="col-4">
-												<select class="custom-select">
+												<select class="custom-select" name="year">
 													<option selected>yyyy</option>
+													<option value="2000">2000</option>
+													<option value="2001">2001</option>
+													<option value="2002">2002</option>
+													<option value="2003">2003</option>
+													<option value="2004">2004</option>
+													<option value="2005">2005</option>
+													<option value="2006">2006</option>
+													<option value="2007">2007</option>
+													<option value="2008">2008</option>
+													<option value="2009">2009</option>
+													<option value="2010">2010</option>
+													<option value="2011">2011</option>
+													<option value="2012">2012</option>
+													<option value="2013">2013</option>
+													<option value="2014">2014</option>
+													<option value="2015">2015</option>
+													<option value="2016">2016</option>
+													<option value="2017">2017</option>
+													<option value="2018">2018</option>
+													<option value="2019">2019</option>
+													<option value="2020">2020</option>
+													<option value="2021">2021</option>
+													<option value="2022">2022</option>
+													<option value="2023">2023</option>
 												</select>
 											</div>
-
-
 										</div>
-
 										<div class="row" style="padding-top: 20px">
-
-
 											<div class="col-4">
-												<select class="custom-select">
+												<select class="custom-select" name="lmonth">
 													<option selected>month</option>
+													<option value="01">1</option>
+													<option value="02">2</option>
+													<option value="03">3</option>
+													<option value="04">4</option>
+													<option value="05">5</option>
+													<option value="06">6</option>
+													<option value="07">7</option>
+													<option value="08">8</option>
+													<option value="09">9</option>
+													<option value="10">10</option>
+													<option value="11">11</option>
+													<option value="12">12</option>
 												</select>
 											</div>
 											<div class="col-4">
-												<select class="custom-select">
+												<select class="custom-select" name="lday">
 													<option selected>dd</option>
+													<option value="01">1</option>
+													<option value="02">2</option>
+													<option value="03">3</option>
+													<option value="04">4</option>
+													<option value="05">5</option>
+													<option value="06">6</option>
+													<option value="07">7</option>
+													<option value="08">8</option>
+													<option value="09">9</option>
+													<option value="10">10</option>
+													<option value="11">11</option>
+													<option value="12">12</option>
+													<option value="13">13</option>
+													<option value="14">14</option>
+													<option value="15">15</option>
+													<option value="16">16</option>
+													<option value="17">17</option>
+													<option value="18">18</option>
+													<option value="19">19</option>
+													<option value="20">20</option>
+													<option value="21">21</option>
+													<option value="22">22</option>
+													<option value="23">23</option>
+													<option value="24">24</option>
+													<option value="25">25</option>
+													<option value="26">26</option>
+													<option value="27">27</option>
+													<option value="28">28</option>
+													<option value="29">29</option>
+													<option value="30">30</option>
+													<option value="31">31</option>
 												</select>
 											</div>
 											<div class="col-4">
-												<select class="custom-select">
+												<select class="custom-select" name="lyear">
 													<option selected>yyyy</option>
+													<option value="2000">2000</option>
+													<option value="2001">2001</option>
+													<option value="2002">2002</option>
+													<option value="2003">2003</option>
+													<option value="2004">2004</option>
+													<option value="2005">2005</option>
+													<option value="2006">2006</option>
+													<option value="2007">2007</option>
+													<option value="2008">2008</option>
+													<option value="2009">2009</option>
+													<option value="2010">2010</option>
+													<option value="2011">2011</option>
+													<option value="2012">2012</option>
+													<option value="2013">2013</option>
+													<option value="2014">2014</option>
+													<option value="2015">2015</option>
+													<option value="2016">2016</option>
+													<option value="2017">2017</option>
+													<option value="2018">2018</option>
+													<option value="2019">2019</option>
+													<option value="2020">2020</option>
+													<option value="2021">2021</option>
+													<option value="2022">2022</option>
+													<option value="2023">2023</option>
 												</select>
 											</div>
-
-
 										</div>
 									</div>
 									<!-- --------------------this is slider range----------------------------------------------------------------------------------- -->
 									<div class="col-lg-4 form-group">
 										<p>
 											<label for="amount">Duration:</label> <input type="text"
-												id="amount" readonly
-												style="border: 0; color: #000000; font-weight: bold;">
+												id="amount" readonly name="amount"
+												style="border: 0; color: #000000; ">
 										</p>
 										<div id="slider-range"></div>
-
 									</div>
 									<!-- -------------------------------------------------------------------end of slider range------------------------------------------- -->
 									<div class="col-lg-4">
@@ -348,11 +617,9 @@ background-color:black;
 												Age</label>
 										</div>
 										<div style="padding-top: 15px">
-											<form class="form-group">
-												<select class="form-control">
-													<option>--</option>
-												</select>
-											</form>
+											<!-- <form class="form-group"> -->
+												<input type="number" class="form-control" name ="minage" required="required"/>	
+											<!-- </form> -->
 										</div>
 									</div>
 
@@ -360,28 +627,21 @@ background-color:black;
 								<div>
 									<div class="container see_results">
 										<div class="row">
-											<a href="search_result/moreFilter"><button type="submit"
-													class="btn form-control">See Results</button></a>
+											<input type="submit"
+													class="btn form-control" value="See Results"/>
 										</div>
 									</div>
 								</div>
-
+								</form>
 							</div>
-
 						</div>
 					</div>
 				</div>
-
 			</div>
-
-
 		</div>
-
-
 		<div class="row">
-
 			<div class="col-md-12">
-				Results
+		${size}	Results
 				<div style="float: right;">
 					Sort by: <select class="text-dark m-1">
 						<option>Name</option>
@@ -389,14 +649,12 @@ background-color:black;
 					</select>
 				</div>
 			</div>
-
 		</div>
 
 		<!-- project list row-->
 		<div class="row search-panel">
 			<c:forEach items="${projects}" var="projects">
 				<div class="col-md-4">
-
 					<div id="${projects.id}" class="carousel slide bg-inverse"
 						data-ride="carousel" data-interval="false">
 						<div class="carousel-inner" role="listbox">
@@ -461,7 +719,7 @@ background-color:black;
 		<div class="row">
 			<a href="homepage"><img
 				src="/Volunteer_Overseas/resources/images/logo_1.png"> </a><span>
-				<a href="contact_us">CONTACT US</a> <a href="faq">FAQ</a>
+				<a href="contact">CONTACT US</a> <a href="faq">FAQ</a>
 			</span>
 		</div>
 	</div>
@@ -476,12 +734,12 @@ background-color:black;
 								values : [ 1, 3 ],
 								slide : function(event, ui) {
 									$("#amount").val(
-											ui.values[0] + " weeks-"
+											ui.values[0] + " weeks- "
 													+ ui.values[1]+" weeks");
 								}
 							});
 			$("#amount").val(
-					 $("#slider-range").slider("values", 0) + " weeks-"
+					 $("#slider-range").slider("values", 0) + " weeks- "
 							+ $("#slider-range").slider("values", 1)+" weeks");
 		});
 	</script>
