@@ -75,15 +75,20 @@ div#owl-table .owl-nav button.owl-next img{height: 25px;width: 15px;}
            <div class="row">
                 <div class="col-md-8">
                 <div class="div1 row">
+                <div class="column col-md-9">
                   <h2 class="n1"><b>${project.title}</b></h2>
+                  </div>
+                  <div class="column col-md-3">
                     <p class="kumasi_ghana">
-                      <img  src="/Volunteer_Overseas/resources/images/pin.png" id="div-img"/> 
+                      <img  src="/Volunteer_Overseas/resources/images/pin.png"/> 
                     Kumasi,Ghana</p> 
+                    </div>
                 </div>
                 <div class="div2 row" style="align-items:center">
                     <img src="/Volunteer_Overseas/resources/images/play-logo.png"/>
                     <h2 style="color: #00acc1"><b>&nbsp;${project.organization.name}</b></h2>
                 </div>
+                </br>
                     <div class="row">                   
                             <div class="col-md-4 col-sm-6"><img src="/Volunteer_Overseas/resources/images/icon1.png">&nbsp;&nbsp;From $714 for 2 weeks</img>
                            </div>
@@ -438,7 +443,7 @@ div#owl-table .owl-nav button.owl-next img{height: 25px;width: 15px;}
 
  <div class="modal fade" id="img_gallery" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true"> 
   <div class="modal-dialog phn_view" role="document">
-    <div class="modal-content" style="background-color: transparent;margin-top: 100px;right: 40px">
+    <div class="modal-content" style="background-color: transparent;margin-top: 9%;left: 30%">
       <div>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true"><img src="/Volunteer_Overseas/resources/images/cross.png" class="img_arrow"></span>
@@ -596,10 +601,8 @@ div#owl-table .owl-nav button.owl-next img{height: 25px;width: 15px;}
    </script>
 <script type="text/javascript">
     $(document).ready(function(){
-
         $(window).scroll(function(){
         if ($(window).scrollTop() >= 10) {
-            
             $('#menu').addClass('fixed-header2');
             $('.color-logo1').attr('src','/Volunteer_Overseas/resources/images/logo.png');
             $('header a').css("color","#00acc1");
@@ -652,7 +655,6 @@ function showSlides(n) {
   }
   slides[slideIndex-1].style.display = "block";
   dots[slideIndex-1].className += " active";
-  captionText.innerHTML = dots[slideIndex-1].alt;
 }
 </script>
 </body>

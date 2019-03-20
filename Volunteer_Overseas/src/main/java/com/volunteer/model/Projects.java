@@ -1,5 +1,6 @@
 package com.volunteer.model;
 
+
 import java.util.Set;
 
 import javax.persistence.CascadeType;
@@ -20,7 +21,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 @Entity
 @Table(name="projects")
 @Proxy(lazy=false)
-public class Projects {
+public class Projects{
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)

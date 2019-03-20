@@ -62,6 +62,7 @@ public class HomeController {
 				.addObject("projectsMostAffordable",costs)
 				.addObject("projectFeaturedest", projectFeaturedest);
 	}
+	@SuppressWarnings("unused")
 	@RequestMapping("search_result")
 	public ModelAndView search_result(HttpServletRequest request){
 		String Country=request.getParameter("searchbar-location");
@@ -71,10 +72,21 @@ public class HomeController {
 		List<Activities> activities=clientService.getAllActivities();
 		List<Projects> projects=clientService.getProjectByFilter(Category,Country,Activity);
 		int size = projects.size();
-		return new ModelAndView("search_result","location",Country)
+		if(size == 0){
+			return new ModelAndView("search_result","location",Country)
+					.addObject("categories", categories).addObject("activities",activities)
+					.addObject("activity",Activity)
+					.addObject("category",Category).addObject("size", size);
+		}
+		else{
+			List<Integer> costProjectId = clientService.getAllAffordableCost(projects);
+			List<ProjectCosts> costs= clientService.getAllAffordableCostById(costProjectId);	
+			return new ModelAndView("search_result","location",Country)
 				.addObject("categories", categories).addObject("activities",activities)
-				.addObject("projects", projects).addObject("activity",Activity)
+				.addObject("projects", costs).addObject("activity",Activity)
 				.addObject("category",Category).addObject("size", size);
+			
+		}
 	}
 	@RequestMapping("search_result/moreFilter")
 	public ModelAndView moreFilters(HttpServletRequest request,Model modal) throws ParseException{
@@ -94,14 +106,26 @@ public class HomeController {
 	    List<Categories> categories=clientService.getAllCategories();
 		List<Activities> activities=clientService.getAllActivities();
 		List<Projects> projects=clientService.getProjectByFilter(modelcategory,modellocation,modelactivity,startdate,startdate2,range,minage);
+	    if(projects == null){
+	    	String size = "No";
+	    	return new ModelAndView("search_result","size",size).
+					addObject("location",modellocation).                            
+					addObject("category",modelcategory).
+					addObject("activity",modelactivity).
+					addObject("categories",categories).
+					addObject("activities",activities);
+	    }else{ 
 	    int size = projects.size();
-		return new ModelAndView("search_result","projects",projects).
-				addObject("location",modellocation).                            
-				addObject("category",modelcategory).
-				addObject("activity",modelactivity).
-				addObject("categories",categories).
-				addObject("activities",activities).
-				addObject("size", size);
+	    List<Integer> costProjectId = clientService.getAllAffordableCost(projects);
+		List<ProjectCosts> costs= clientService.getAllAffordableCostById(costProjectId);
+			return new ModelAndView("search_result","projects",costs).
+					addObject("location",modellocation).                            
+					addObject("category",modelcategory).
+					addObject("activity",modelactivity).
+					addObject("categories",categories).
+					addObject("activities",activities).
+					addObject("size", size);
+	    }
 	}
 	@RequestMapping("index/signup")
 	public ModelAndView apply_now(HttpServletRequest request) throws ParseException{
@@ -113,14 +137,9 @@ public class HomeController {
 		int phone = Integer.parseInt(request.getParameter("phone"));
 		String email = request.getParameter("mail");
 		clientService.addApp(Fullname,date,duration,phone,email,projectid);
-		System.out.println("done signup");
 		return new ModelAndView("redirect:/index/project","id",projectid);
 	}
 	@RequestMapping("index")
-	public ModelAndView index(){
-		return new ModelAndView("index");
-	}
-	@RequestMapping("index/project")
 	public ModelAndView project(HttpServletRequest request){
 		int projectid=Integer.parseInt(request.getParameter("id"));
 		Projects project=clientService.getProjectById(projectid);
@@ -135,5 +154,4 @@ public class HomeController {
 	public ModelAndView login(){
 		return new ModelAndView("login");
 	}
-	
 }

@@ -1,5 +1,6 @@
 package com.volunteer.daoimp;
 
+import java.sql.SQLException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -63,17 +64,20 @@ public class Client implements IClient {
 		query.setParameter("country", country);
 		query.setParameter("activity", activity);
 		List<Projects> project=query.list();
-		return project;
+		if(project==null){
+			return null;
+		}
+		else{
+			return project;
+		}
 	}
 	
 	@SuppressWarnings("unchecked")
 	public List<Projects> getMoreFiltersProjects(int category, int country, int activity, List<Integer> startdateid,
 			List<Integer> rangeArea, int minage){
 		Session session=sessionFactory.getCurrentSession();
-	//	Set<ProjectStartDates> projectsdate = new HashSet<ProjectStartDates>();
-	//	projectsdate.addAll(startdateid);
 		Query query = session.createQuery("from Projects p where p.category.id=:category and p.country.id=:country and p.activity.id=:activity "
-				+ "and p.min_age<= :minage and p.id IN :startdate and p.id IN :range");
+				+ "and p.min_age<= :minage and p.id IN (:startdate) and p.id IN (:range)");
 		query.setParameter("category", category);
 		query.setParameter("country", country);
 		query.setParameter("activity", activity);
@@ -81,7 +85,7 @@ public class Client implements IClient {
 		query.setParameterList("range", rangeArea);
 		query.setParameter("minage", minage);
 		List<Projects> project=query.list();
-		return project;
+			return project;
 	}
 	
 	@SuppressWarnings("unchecked")
@@ -110,8 +114,11 @@ public class Client implements IClient {
 		query.setParameter("stDate", date1);
 		query.setParameter("edDate", date2);
 		List<Integer> dateId = query.list();
-		System.out.println("dateid is"+dateId);
-		return dateId;
+		if(dateId.size()==0){
+			return null;
+		}else{
+			return dateId;
+		}
 	}
 	@SuppressWarnings("unchecked")
 	public List<Integer> getRange(int range1, int range2){
@@ -120,8 +127,11 @@ public class Client implements IClient {
 		query.setParameter("sWeek", range1);
 		query.setParameter("eWeek", range2);
 		List<Integer> rangeId = query.list();
-		System.out.println("week id is"+rangeId);
-		return rangeId;
+		if(rangeId.size()==0){
+			return null;
+		}else{
+			return rangeId;
+		}
 	}
 	@SuppressWarnings("unchecked")
 	public int getCountryId(String Country){
@@ -137,7 +147,6 @@ public class Client implements IClient {
 			return 0;
 		}
 	}
-	
 	@SuppressWarnings("unchecked")
 	public int getActivityId(String Activity){
 		Session session = sessionFactory.getCurrentSession();
@@ -237,7 +246,7 @@ public class Client implements IClient {
 	 {
 		 Session session = sessionFactory.getCurrentSession();
 		 ProjectCosts pc = (ProjectCosts)session.load(ProjectCosts.class, id);
-		 System.out.println(pc.getCost());
+		// System.out.println(pc.getCost());
 		 return pc;
 	 }
 	 public void AddInquiry(String name, String mail, String message){

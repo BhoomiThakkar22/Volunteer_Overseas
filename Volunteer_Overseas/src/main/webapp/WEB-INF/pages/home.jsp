@@ -114,7 +114,7 @@ color:black;
 			<div class="owl-carousel owl-nav">
 			<c:forEach items="${projectsTrending}" var="projects">
 				<div class="item">
-					<a href="index/project?id=${projects.id}"><img
+					<a href="index?id=${projects.id}"><img
 						src="/Volunteer_Overseas/resources/images/thumb01.jpg" /></a>
 					<div>
 						<label class="label1">${projects.country.name}</label>
@@ -131,7 +131,7 @@ color:black;
 			<div class="owl-carousel">
 				<c:forEach items="${projectFeaturedest}" var="projects">
 				<div class="item">
-					<a href="index/project?id=${projects.id}"><img
+					<a href="index?id=${projects.id}"><img
 						src="/Volunteer_Overseas/resources/images/thumb10.jpg" /></a>
 					<div>
 						<label class="slider2-label"> 37 Projects in </label>
@@ -149,7 +149,7 @@ color:black;
 					<%-- <% System.out.println(request.getParameter(projectsMostAffordable.id)); %> --%>
 					<%-- <c:out value="${projectsMostAffordable.projectCost.id
 					}"></c:out> --%>
-					<a href="index/project?id=${projectsMostAffordable.projectCost.id}"> <img
+					<a href="index?id=${projectsMostAffordable.projectCost.id}"> <img
 						src="/Volunteer_Overseas/resources/images/thumb16.jpg">
 					</a>
 					<div>

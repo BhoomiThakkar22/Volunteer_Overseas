@@ -40,7 +40,6 @@ public class ClientServiceImp implements IClientService {
 	@Transactional
 	public Projects getProjectById(int projectid){
 		Projects project= client.getProjectById(projectid);
-		System.out.println(project.getId());
 		return project;
 	}
 	@Transactional
@@ -69,11 +68,12 @@ public class ClientServiceImp implements IClientService {
 		int range1 = Integer.parseInt(splitStr[0]);
 		int range2 = Integer.parseInt(splitStr[2]);
 		List<Integer> rangeArea = client.getRange(range1,range2);
-		if(category!=0 && country!=0 && activity!=0 && startdateid!=null &&  rangeArea!=null && minage!=0){
+		if(startdateid == null || rangeArea == null)
+		{
+			return null;
+		}else{
 		List<Projects> project = client.getMoreFiltersProjects(category,country,activity,startdateid,rangeArea,minage);
 		return project;
-		}else{
-			return null;
 		}
 	}
 	@Transactional
@@ -121,14 +121,12 @@ public class ClientServiceImp implements IClientService {
 		List<Integer> projectIds = new ArrayList<Integer>();
 		for(int i=0;i<projectsMostAffordable.size();i++){
 			int projectId=projectsMostAffordable.get(i).getId();
-			System.out.println(projectId);
 			projectIds.add(projectId);
 		}
 		return projectIds;
 	}
 	@Transactional
 	public List<ProjectCosts> getAllAffordableCostById(List<Integer> costProjectId){
-		
 		return client.getAllAffordableCostById(costProjectId);
 	}
 	@Transactional

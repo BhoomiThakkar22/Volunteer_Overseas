@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -361,7 +362,7 @@ p img {
 									<div class="container see_results">
 										<div class="row">
 											<a href="search_result/moreFilter"><button type="submit"
-													class="btn form-control">See Results</button></a>
+													class="btn btn-secondary form-control">See Results</button></a>
 										</div>
 									</div>
 								</div>
@@ -628,7 +629,7 @@ p img {
 									<div class="container see_results">
 										<div class="row">
 											<input type="submit"
-													class="btn form-control" value="See Results"/>
+													class="btn form-control text-light" value="See Results" />
 										</div>
 									</div>
 								</div>
@@ -655,13 +656,16 @@ p img {
 		<div class="row search-panel">
 			<c:forEach items="${projects}" var="projects">
 				<div class="col-md-4">
-					<div id="${projects.id}" class="carousel slide bg-inverse"
+					<div id="${projects.projectCost.id}" class="carousel slide bg-inverse"
 						data-ride="carousel" data-interval="false">
+						
 						<div class="carousel-inner" role="listbox">
 							<div class="carousel-item active">
+							<a href="index?id=${projects.projectCost.id}"> 
 								<img class="d-block w-100"
 									src="/Volunteer_Overseas/resources/images/photo01.jpg"
 									alt="First slide">
+									</a>
 								<div class="carousel-caption">
 									<div class="caption">
 										<p>MEDICAL VOLUNTEERING</p>
@@ -669,9 +673,11 @@ p img {
 								</div>
 							</div>
 							<div class="carousel-item" data-interval="false">
+							<a href="index?id=${projects.projectCost.id}"> 
 								<img class="d-block w-100"
 									src="/Volunteer_Overseas/resources/images/photo02.jpg"
 									alt="Second slide">
+									</a>
 								<div class="carousel-caption">
 									<div class="caption1">
 										<p>LOREM IPSUM</p>
@@ -679,43 +685,46 @@ p img {
 								</div>
 							</div>
 							<div class="carousel-item">
+							<a href="index?id=${projects.projectCost.id}"> 
 								<img class="d-block w-100"
 									src="/Volunteer_Overseas/resources/images/photo03.jpg"
 									alt="Third slide">
+									</a>
 								<div class="carousel-caption">
 									<div class="caption1">
 										<p>DOLOR SIT</p>
 									</div>
 								</div>
 							</div>
-
 						</div>
-						<a class="carousel-control-prev" href="#${projects.id}"
+						<a class="carousel-control-prev" href="#${projects.projectCost.id}"
 							role="button" data-slide="prev"> <span
 							class="carousel-control-prev-icon" aria-hidden="true"></span> <span
 							class="sr-only">Previous</span>
-						</a> <a class="carousel-control-next" href="#${projects.id}"
+						</a> <a class="carousel-control-next" href="#${projects.projectCost.id}"
 							role="button" data-slide="next"> <span
 							class="carousel-control-next-icon" aria-hidden="true"></span> <span
 							class="sr-only">Next</span>
 						</a>
 					</div>
 					<p></p>
-					<P style="font-size: 16px">Volunteer with Tigers</P>
+					<P style="font-size: 16px">${projects.projectCost.title}</P>
 					<p style="font-size: 14px; color: #00acc1">
 						<img
 							src="/Volunteer_Overseas/resources/images/volunteer-logo01.png"
 							style="width: 20px; height: 20px;">Love Volunteers
 					</p>
+					<c:set var="y" value="${projects.cost}"></c:set>
+						<c:set var="x" value="${projects.number_of_weeks}"></c:set>
+						<fmt:parseNumber var = "j" type = "number" value = "${y/x}" integerOnly = "true" />
 					<p style="font-size: 14px;">
-						$215/week <font style="color: red">.</font> 1-2 weeks duration
+						${j}/week <font style="color: red">.</font> ${x} weeks duration
 					</p>
 				</div>
 			</c:forEach>
 		</div>
 	</div>
-
-	<div class="footer">
+	<div class="footer fixed-bottom">
 		<div class="row">
 			<a href="homepage"><img
 				src="/Volunteer_Overseas/resources/images/logo_1.png"> </a><span>
@@ -742,6 +751,11 @@ p img {
 					 $("#slider-range").slider("values", 0) + " weeks- "
 							+ $("#slider-range").slider("values", 1)+" weeks");
 		});
+	</script>
+	<script>
+	$(window).scroll(function(){
+		$('.footer').removeClass("fixed-bottom");
+	});
 	</script>
 	<script type="text/javascript">
 		$('more-filters-btn').click(function() {
@@ -775,6 +789,7 @@ p img {
 			$('[data-toggle="popover"]').popover()
 		})
 	</script>
+	
 
 </body>
 </html>

@@ -103,7 +103,8 @@ color:#00acc1;
 .kumasi_ghana{
 	padding-top:20px;
 	color:#e53b51; 
-	display: inline-block
+	display: inline-block;
+	float: right;
 }
 .right1
 {
@@ -448,7 +449,7 @@ border-radius: 3px;
     justify-content: center;
     
 }
-.see_results button{
+.see_results button,.see_results input{
 	background-color: #00acc1;
     color: #fff;
 }
@@ -551,7 +552,7 @@ text-align: center;
 
 /* Position the "next button" to the right */
 .next {
-  right: 0;
+  right: 0; 
   border-radius: 3px 0 0 3px;
 }
 
@@ -688,13 +689,13 @@ height: 200px
 .prev{
 	position: fixed;
 	color: white !important;
-    right: 144%;
+     right: 85%; 
     top: 115%;
 }
 .next{
 	position: fixed;
 	color: white !important;
-    left: 154%;
+     left: 175%; 
     top: 115%;
 }
 .img_arrow
